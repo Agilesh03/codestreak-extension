@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+
+    "name": "CodeStreak",
+
+    "version": "1.0.0",
+
+    "description": "Sync LeetCode solutions to GitHub.",
+
+    "icons": {
+        "128": "icon/logo2.png"
+    },
+
+    "action": {
+        "default_title": "CodeStreak",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "storage",
+        "identity"
+    ],
+
+    "host_permissions": [
+        "https://leetcode.com/*",
+        "https://api.github.com/*",
+        "https://github.com/*",
+        "http://localhost:3000/*"
+    ],
+
+    "content_scripts": [
+        {
+            "matches": [
+                "https://leetcode.com/problems/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+
+    "externally_connectable": {
+        "matches": [
+            "https://leetcode.com/*"
+        ]
+    }
+}
